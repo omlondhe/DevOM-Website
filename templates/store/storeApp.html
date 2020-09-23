@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} DevOM Store
+{% endblock title %}
+
+{% block storeActive %}active{% endblock storeActive %}
+
+{% block style %}
+    html {
+        background-color: #101820FF;
+    }
+{% endblock style %}
+
+{% block body %}
+    <div class="container">
+        <div class="column container mr-4 p-4">
+            <div class="row">
+                <div class="col-md-3 p-3 w3-animate-zoom" >
+                    <img src="{{appInfo.imageURL}}" alt="Application Image" class="card-img-md">
+                </div>
+                <div class="column">
+                    <div class="col-md-9 w3-animate-right">
+                        <h1>{{appInfo.title}}</h1>
+                    </div>
+                    <div class="mx-4 w3-animate-right">
+                        <p class="card-text" style="color: gray;"><small class="text-muted">{{appInfo.timestamp}}</small></p>
+                    </div>
+                    <div class="mx-4 w3-animate-right">
+                        <p class="card-text" style="color: gray;"><small class="text-muted">{{appInfo.views}} views</small></p>
+                    </div>
+                    <div class="bottom w3-animate-right">
+                        <a href="{{appInfo.link}}" target="_blank" class="btn btn-primary btn-md m-3" role="button">
+                            Download App
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr style="background-color: black;">
+            <div class="row">
+                <div class="col-md-12 p-3 w3-animate-bottom" >
+                    {{appInfo.description|safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} DevOM Store
+{% endblock title %}
+
+{% block storeActive %}active{% endblock storeActive %}
+
+{% block head %}
+    <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+{% endblock head %}
+
+{% block style %}
+    html {
+        background-color: #101820FF;
+    }
+    .card-title{
+        font-family: 'Ramabhadra', sans-serif;
+    }
+{% endblock style %}
+
+{% block body %}
+    <div class="container">
+        <div class="p-4">
+            {% for playStoreAppInfo in allPlayStoreAppLinks %}
+                <a href="{{playStoreAppInfo.slug}}" style="text-decoration: none;">
+                    <div class="card shadow p-3 my-4 bg-white w3-animate-opacity" style="border-radius: 21px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 p-3 w3-animate-zoom">
+                                <img src="{{playStoreAppInfo.imageURL}}" class="card-img" alt="App Image">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title w3-animate-top" style="color: black;">{{playStoreAppInfo.title}}</h2>
+                                    <hr class="w3-animate-top">
+                                    <p class="card-text" style="color: black;"><div class="preview w3-animate-top" style="color: black;">{{playStoreAppInfo.description|safe| truncatechars:651}}</div></p>
+                                    <p class="card-text w3-animate-top" style="color: gray;"><small class="text-muted">{{playStoreAppInfo.timestamp}} ({{playStoreAppInfo.views}} views)</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}
+
+{% block script %}
+    <script>
+        let preview = document.getElementsByClassName('preview');
+        Array.from(preview).forEach((element) => {
+            element.innerHTML = element.innerText;
+        });
+    </script>
+{% endblock script %}

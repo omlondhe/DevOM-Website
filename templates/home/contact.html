@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} DevOM: Contact us
+{% endblock title %}
+
+{% block contactActive %}active{% endblock contactActive %}
+
+{% block style %}
+    html {
+        background-color: #101820FF;
+    }
+{% endblock style %}
+
+{% block body %}
+    <div class="container ">
+        <div class="container my-5">
+            <h1 class="my-3 w3-animate-top" style="font-weight: bold;">Contact DevOM</h1>
+            
+            <form method="post" action="/contact">
+                {% csrf_token %}
+                <div class="input-group flex-nowrap col-sm my-4 w3-center w3-animate-left">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Name</span>
+                    </div>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="input-group flex-nowrap col-sm my-4 w3-center w3-animate-right">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">@</span>
+                    </div>
+                    <input type="email" class="form-control" name="email" placeholder="Enter your Email" aria-label="email" aria-describedby="addon-wrapping">
+                </div>
+                <div class="input-group flex-nowrap col-sm my-4 w3-center w3-animate-left">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Ph. No.</span>
+                    </div>
+                    <input type="text" class="form-control" id="phone" name="phone"  placeholder="Enter your Contact number">
+                </div>
+                <div class="input-group col-sm my-4 w3-center w3-animate-right">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Your Description</span>
+                    </div>
+                    <textarea class="form-control" aria-label="description" name="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-md mx-3 w3-animate-bottom">Ping DevOM</button>
+            </form>
+        </div>
+    </div>
+{% endblock body %}
+
