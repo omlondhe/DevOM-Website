@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -129,3 +130,4 @@ MESSAGE_TAGS = {
 STATICFILES_DIRS = (
     os.path.join('static'),
 )
+django_heroku.settings(locals())
